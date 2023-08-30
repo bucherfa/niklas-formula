@@ -4,29 +4,27 @@
     <Meta name="description" content="Calculate hiking time based on distance, ascent and descent." />
   </Head>
   <div class="grid">
-      <label class="label" for="distance">
-        <IconArrowsLeftRight />
-        <span class="unit">km</span>
-      </label>
-      <input type="number" v-model="distance" class="input" id="distance">
-      <label class="label" for="ascent">
-        <IconArrowUp class="thin-icon" />
-        <span class="unit">m</span>
-      </label>
-      <input type="number" v-model="ascent" class="input" id="ascent">
-      <label class="label" for="descent">
-        <IconArrowDown class="thin-icon" />
-        <span class="unit">m</span>
-      </label>
-      <input type="number" v-model="descent" class="input" id="descent">
-      <span class="label">
-        <IconClock />
-      </span>
-      <div v-if="ascentDecentInHoursCombined > distanceInHours" class="result">{{hhmm(0.5 * distanceInHours + ascentDecentInHoursCombined)}}</div>
-      <div v-else class="result">{{hhmm(distanceInHours + 0.5 * ascentDecentInHoursCombined)}}</div>
+    <label class="label" for="distance">
+      <IconArrowsLeftRight />
+      <span class="unit">km</span>
+    </label>
+    <input type="number" v-model="distance" class="input" id="distance" @focus="handleInputElementFocus">
+    <label class="label" for="ascent">
+      <IconArrowUp class="thin-icon" />
+      <span class="unit">m</span>
+    </label>
+    <input type="number" v-model="ascent" class="input" id="ascent" @focus="handleInputElementFocus">
+    <label class="label" for="descent">
+      <IconArrowDown class="thin-icon" />
+      <span class="unit">m</span>
+    </label>
+    <input type="number" v-model="descent" class="input" id="descent" @focus="handleInputElementFocus">
+    <span class="label">
+      <IconClock />
+    </span>
+    <div v-if="ascentDecentInHoursCombined > distanceInHours" class="result"><span class="highlight">{{hhmm(0.5 * distanceInHours + ascentDecentInHoursCombined)}}</span></div>
+    <div v-else class="result"><span class="highlight">{{hhmm(distanceInHours + 0.5 * ascentDecentInHoursCombined)}}</span></div>
     </div>
-  <!--div v-if="ascentDecentInHoursCombined > distanceInHours">0.5 * {{r(distanceInHours)}} + {{r(ascentDecentInHoursCombined)}} = {{r(0.5 * distanceInHours + ascentDecentInHoursCombined)}}</div>
-  <div v-else>{{r(distanceInHours)}} + 0.5 * {{r(ascentDecentInHoursCombined)}} = {{r(distanceInHours + 0.5 * ascentDecentInHoursCombined)}}</div-->
 </template>
 <script setup lang="js">
 import {
@@ -58,6 +56,9 @@ function hhmm(number) {
   const minutes = Math.floor((number - hours) * 60).toString().padStart(2, '0')
   return `${hours}h ${minutes}m`
 }
+function handleInputElementFocus(event) {
+  event.target.select()
+}
 </script>
 <style scoped>
 .grid {
@@ -65,7 +66,7 @@ function hhmm(number) {
   gap: 2rem;
   grid-template-columns: auto 1fr;
   max-width: 32rem;
-  margin: 0 auto;
+  margin: 3rem auto;
 }
 .label {
   display: flex;
@@ -94,5 +95,11 @@ function hhmm(number) {
 }
 .thin-icon {
   padding: 0 0.125em;
+}
+.highlight {
+  background: darkcyan;
+  color: white;
+  display: inline-block;
+  padding: 0.25rem 1rem;
 }
 </style>

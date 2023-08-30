@@ -11,6 +11,9 @@ export default defineNuxtConfig({
   pwa: {
     icon: {
       source: './assets/icon.png'
+    },
+    manifest: {
+      theme_color: '#ffffff'
     }
   },
   css: ['~/assets/main.css', '~/node_modules/@csstools/normalize.css/opinionated.css']
