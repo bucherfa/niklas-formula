@@ -64,6 +64,8 @@ function hhmm(number) {
   display: grid;
   gap: 2rem;
   grid-template-columns: auto 1fr;
+  max-width: 32rem;
+  margin: 0 auto;
 }
 .label {
   display: flex;
@@ -79,6 +81,7 @@ function hhmm(number) {
   border: 0;
   border-bottom: 2px solid lightgray;
   font-size: 72px;
+  text-align: right;
   width: 100%;
 }
 .input:focus {

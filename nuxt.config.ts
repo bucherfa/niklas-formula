@@ -12,5 +12,6 @@ export default defineNuxtConfig({
     icon: {
       source: './assets/icon.png'
     }
-  }
+  },
+  css: ['~/assets/main.css', '~/node_modules/@csstools/normalize.css/opinionated.css']
 })
