@@ -8,4 +8,9 @@ export default defineNuxtConfig({
   modules: [
     '@kevinmarrec/nuxt-pwa'
   ],
+  pwa: {
+    icon: {
+      source: './assets/icon.png'
+    }
+  }
 })
