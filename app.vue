@@ -1,6 +1,7 @@
 <template>
   <Head>
     <Title>Niklas-Formel</Title>
+    <Meta name="description" content="Calculate hiking time based on distance, ascent and descent." />
   </Head>
   <div class="grid">
       <label class="label" for="distance">
@@ -17,7 +18,7 @@
         <IconArrowDown class="thin-icon" />
         <span class="unit">m</span>
       </label>
-      <input type="number" v-model="descent" class="input" id="distance">
+      <input type="number" v-model="descent" class="input" id="descent">
       <span class="label">
         <IconClock />
       </span>
