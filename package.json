@@ -1,5 +1,6 @@
 {
-  "name": "nuxt-app",
+  "name": "niklas-formula",
+  "description": "Calculate hiking time based on distance, ascent and descent.",
   "private": true,
   "scripts": {
     "build": "nuxt build",
